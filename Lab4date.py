@@ -1,6 +1,6 @@
 # 1
 import datetime
-from datetime import date, timedelta
+from datetime import timedelta
 
 print("nomer1")
 x1 = datetime.datetime.now() - timedelta(5)
