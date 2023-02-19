@@ -120,9 +120,7 @@ print(uni(mylist))
 """
 # 11. Write a Python function that checks whether a word or phrase is palindrome or not. Note: A palindrome is word, phrase, or sequence that reads the same backward as forward, e.g., madam
 def isp(s):
-    if s == s[::-1]:
-        return True
-    return False
+    return s == s[::-1]
 
 
 s = str(input("enter your string: "))
@@ -148,8 +146,6 @@ mylist = stringofnums.split()
 for i in range(len(mylist)):
     mylist[i] = int(mylist[i])
 his(mylist)
-    if n==guess:
-        print("Good job, ",name,"! You guessed my number in ", a, " guesses!")
 """
 # 13. Write a program able to play the "Guess the number" - game, where the number to be guessed is randomly chosen between 1 and 20. This is how it should work when run in a terminal:
 from random import randint

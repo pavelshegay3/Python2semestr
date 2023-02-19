@@ -1,3 +1,4 @@
+"""
 x = "Hello world"
 y = len(x)
 print(y)
@@ -7,11 +8,12 @@ x = "I love brawl stars"
 # change test number two
 
 # change test number three
-"""lists
+""""""
 list items are ordered, changeable, and allow duplicate values
 list items are indexed like in c
 ordered means that the items have a defined order and that order will not change
 if you add new items to a list the new items will be placed at the end of the list
+"""
 """
 # create a list
 thislist = ["apple", "banana", "cherry", "apple"]
@@ -44,3 +46,35 @@ thislist[1] = "blackcurrant"
 print(thislist)
 
 thislist = ["apple", "banana", "cherry", "orange", "kiwi"]
+stringofnums = input("enter your list: ")
+mynumbers = stringofnums.split()
+for i in range(len(mynumbers)):
+    mynumbers[i] = int(mynumbers[i])
+print(mynumbers)
+"""
+mytuple = ("apple", "banana", "cherry")
+myit = iter(mytuple)
+print(next(myit))
+print(next(myit))
+print(next(myit))
+
+mytuple = ("apple", "banana", "cherry")
+for x in mytuple:
+    print(x)
+
+
+class Mynumbers:
+    def _iter_(self):
+        self.a=1
+        return self
+    def _next_(self):
+        x=self.a
+        self.a+=1
+        return x
+meclass=MyNumbers()
+myiter=iter(myclass)
+print(next(myiter))
+print(next(myiter))
+print(next(myiter))
+print(next(myiter))
+print(next(myiter))
