@@ -13,8 +13,6 @@ list items are ordered, changeable, and allow duplicate values
 list items are indexed like in c
 ordered means that the items have a defined order and that order will not change
 if you add new items to a list the new items will be placed at the end of the list
-"""
-"""
 # create a list
 thislist = ["apple", "banana", "cherry", "apple"]
 print(thislist)
@@ -51,7 +49,7 @@ mynumbers = stringofnums.split()
 for i in range(len(mynumbers)):
     mynumbers[i] = int(mynumbers[i])
 print(mynumbers)
-"""
+
 mytuple = ("apple", "banana", "cherry")
 myit = iter(mytuple)
 print(next(myit))
@@ -78,3 +76,13 @@ print(next(myiter))
 print(next(myiter))
 print(next(myiter))
 print(next(myiter))
+"""
+# python regex
+import re
+txt = "The rain in Spain"
+x = re.search("^The.*Spain$",txt)
+
+string=['afas_afa','asfasf_fafasf']
+for i in string:
+    x=i.split("_")
+    print(x)
