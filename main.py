@@ -76,7 +76,7 @@ print(next(myiter))
 print(next(myiter))
 print(next(myiter))
 print(next(myiter))
-"""
+
 # python regex
 import re
 txt = "The rain in Spain"
@@ -86,3 +86,4 @@ string=['afas_afa','asfasf_fafasf']
 for i in string:
     x=i.split("_")
     print(x)
+"""
