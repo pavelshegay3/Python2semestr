@@ -83,7 +83,6 @@ while i < 26:
     f.close()
     i = i + 1
 print("\n7)")
-
 # 7
 path = 'C:\TESTPATH'
 x1 = input('input a text file 1: ')
@@ -93,14 +92,14 @@ f2 = open(os.path.join(path, x2), 'w')
 for i in f1:
     f2.write(i)
 print("\n8)")
+'''
 # 8
 print("path is: C:\TESTPATH")
 path = input("input a path where your file is located: ")
 x = input("input a file name you want to delete: ")
-if os.access(os.path.join(path, x), os.F_OK):
+if os.access(os.path.join(path, x) , os.F_OK):
     print("////text file", x, "exists, deleting", x, "...")
     os.remove(os.path.join(path, x))
     print("////" + x, "has been deleted")
 else:
     print("file",x,"or path",path,"were not found")
-'''

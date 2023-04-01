@@ -102,7 +102,7 @@ print('\nnomer7')
 
 def nomer7(string):
     words = string.split("_")
-    print(words[0] + ''.join(word.capitalize() for word in words[1:]))
+    print(words[0] + ''.join(i.capitalize() for i in words[1::]))
 
 
 string = "hello_world"
