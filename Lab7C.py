@@ -45,7 +45,7 @@ while check:
     if by > 900 - 50:
         by = 900 - 50
     monitor.fill("White")
-    pygame.draw.circle(monitor, "Red", (bx + brad, by + brad), brad)
+    pygame.draw.circle(monitor, "Blue", (bx + brad, by + brad), brad)
     monitor.blit(text, (100, 100))
     monitor.blit(image, (1025, 300))
     pygame.display.update()

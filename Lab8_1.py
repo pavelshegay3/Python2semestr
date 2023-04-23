@@ -18,7 +18,7 @@ PLAYERMOVERATE = 5
 count = 3
 cscore = 0
 touch = 0
-
+score = 0
 
 def terminate():
     pygame.quit()
@@ -104,7 +104,6 @@ while (count > 0):
     baddies = []
     coins = []
     coins2 = []
-    score = 0
     playerRect.topleft = (WINDOWWIDTH / 2, WINDOWHEIGHT - 50)
     moveLeft = moveRight = moveUp = moveDown = False
     reverseCheat = slowCheat = False
@@ -301,5 +300,7 @@ while (count > 0):
         time.sleep(2)
         waitForPlayerToPressKey()
         count = 3
+        BADDIEMAXSPEED = 10
         cscore = 0
+        score=0
         gameOverSound.stop()
