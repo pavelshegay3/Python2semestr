@@ -30,7 +30,7 @@ while True:
 
     def main_menu():
         print(
-            "Type 1 to insert data through console,\nType 2 to insert data with your CSV file,\nType 3 to change your PhoneBook,\nType 4 to delete a contact,\nType 5 to search a contact,\nType 6 to delete all data,\nType 0 to exit.")
+            "Type 1 to insert data through console,\nType 2 to insert data with your CSV file,\nType 3 to modify a contact in your PhoneBook,\nType 4 to delete a contact,\nType 5 to search a contact,\nType 6 to delete all data,\nType 0 to exit.")
         x = int(input())
         return x
 
@@ -186,7 +186,7 @@ while True:
                 f = 0
             else:
                 for row in rows:
-                    print(f"contact_id:{row[0]},contact_name:{row[1]}, contact_num:{row[2]}")
+                    print(f"contact_id: {row[0]},contact_name: {row[1]}, contact_num: {row[2]}")
                     f = 1
             conn.commit()
             cur.close()
@@ -275,9 +275,9 @@ while True:
                     break
 
         if res == 3:
-            contact_id = input("Enter the contact_id you would like to change: ")
-            new_contact_name = input("Enter the new contact name: ")
-            new_contact_num = input("Enter the new contact_num: ")
+            contact_id = input("Enter contact_id of the contact you would like to change: ")
+            new_contact_name = input("Enter new contact_name: ")
+            new_contact_num = input("Enter new contact_num: ")
             update(contact_id, new_contact_name, new_contact_num)
             if f == 1:
                 print("Done! Contact with contact_id", contact_id, "has been changed successfully.")
