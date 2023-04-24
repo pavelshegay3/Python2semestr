@@ -7,6 +7,8 @@ while True:
     f = 0
     change = 0
     general_path = "SQL files"
+    output_5 = []
+
 
     def config(filename='database.ini', section='postgresql'):
         parser = ConfigParser()
@@ -168,6 +170,7 @@ while True:
     def get_phone_book_record(pattern):
         # index 5
         conn = None
+        global output_5, f
         try:
             params = config()
             print('Connecting to the PostgreSQL database...')
@@ -177,17 +180,18 @@ while True:
             print('PostgreSQL database version:')
             cur.execute('SELECT version()')
 
-            cur.execute("SELECT * FROM pb WHERE contact_name ILIKE %s OR contact_num ILIKE %s",
-                        ('%' + pattern + '%', '%' + pattern + '%'))
+            cur.execute(
+                "SELECT * FROM pb WHERE contact_id::text LIKE %s OR contact_name ILIKE %s OR contact_num ILIKE %s",
+                ('%' + pattern + '%', '%' + pattern + '%', '%' + pattern + '%'))
 
             rows = cur.fetchall()
-            global f
             if len(rows) == 0:
+                output_5 = []
                 f = 0
             else:
                 for row in rows:
-                    print(f"contact_id: {row[0]},contact_name: {row[1]}, contact_num: {row[2]}")
-                    f = 1
+                    output_5.append(f"contact_id: {row[0]},contact_name: {row[1]}, contact_num: {row[2]}")
+                f = 1
             conn.commit()
             cur.close()
         except (Exception, psycopg2.DatabaseError) as error:
@@ -322,10 +326,16 @@ while True:
                     break
 
         if res == 5:
-            pattern = input("Enter contact_name or contact_number you would like to search: ")
+            pattern = input("Enter contact_id, contact_name or contact_number of the contact you would like to search: ")
             get_phone_book_record(pattern)
             if f == 1:
                 print("Done!")
+                if len(output_5) == 1:
+                    print("Found 1 match for your search:")
+                if len(output_5) > 1:
+                    print(f"Found {len(output_5)} matches for your search:")
+                for i in output_5:
+                    print(i)
                 exit = exit_menu()
                 if exit == 1:
                     print("Restarting...")
